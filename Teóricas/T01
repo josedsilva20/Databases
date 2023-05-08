@@ -1,0 +1,169 @@
+SQL
+
+	DATA DEFINITION LANGUAGE SQL-DDL
+
+	DATA QUERY LANGUAGE SQL-DQL
+
+	DATA MANIPULATION LANGUAGE SQL-DML
+
+	Não é uma linguagem de programação
+
+
+
+	Criando tabelas
+
+		usamos CREATE TABLE <table-name>
+
+		column1 type1, ..., columnntypen, <integrity-constraint1>, ... <integrity-constraintn>
+
+
+		ex:
+
+			pagina 11 dos slides:
+
+				CREATE TABLE department(
+				did INTEGER
+				name VARCHAR(80),
+				budget NUMERIC(12, 4),
+				PRIMARY KEY (did);
+				)
+
+		remover tabela:
+
+			DROP TABLE department;
+
+		para além de chaves primarias tambem podemos ter foreign keys (pag 13)
+
+			ligação para outra tabela: a col branchname vai ter valores que estejam na coluna branch name dela 
+
+		inserir:
+
+			INSET INTO <table-name>
+				VALUES(<values>)
+
+			pag 15
+
+
+			SELECT * FROM <table-name>
+
+
+		consultar (query):
+
+			SELECT C,...,Cn
+			FROM table
+			WHERE condition
+
+			Os resultados de querys também são tabelas
+
+
+			ex: pag 22
+
+				SELECT branch-name
+				FROM looan;
+
+				vamos buscar os branches que estão na tabela de empréstimo
+
+				se usassemos * teríamos a tabela toda de loan
+
+
+			podemos executar operações sobre querrys (ver slides)
+
+			podemos criar aliases:
+
+				old-name AS new-name
+
+			ex: encontrar novo saldo de contas depois de subtrair 10 euros em despesas
+
+				SELECT account_numbet AS acct, (balance-10) AS new_bal
+				FROM account;
+
+			SELECT nao altera a informação
+
+				os seus resultados são resultados mostrados mas não guardados
+
+
+
+			WHERE
+
+				SELECT loan_number, amount 
+				FROM LOAN 
+				WHERE ... PAG 29
+
+
+				Podemos misturar operadores relacionais com aritméticos.
+
+				where é uma expressão logica 
+
+			BETWEEN ... AND
+
+				usado para simplificar condições que testam contenção
+
+					ex pag 30
+
+	Duplicados
+
+		Se nao pusermos restrições as tabelas terão linhas repetidas
+
+		mas em si o SQL permite restrições. Só que temos de dizer isso
+
+		Usamos DISTINCT sempre que quisermos fazer querys sem repetições, ele remove duplicados
+
+			SELECT DISTINCT branch_name
+			FROM loan;
+
+	Filtrando por Padrões
+
+		LIKE
+
+			_ MATCHES any single character
+
+			% matches any sequence of variable length
+
+			ver ex dem 37
+
+	pesquisar sigla rfm  **
+
+
+	ORDENAÇÃO
+
+		Usamos o ORDER BY  slides 43
+
+
+	JOIN
+
+		usamos para juntar tabelas
+
+
+
+
+MODELAÇÃO EA
+
+	O problema é estruturado e organizado através da modelação 
+
+	retangulos --> ENTIDADES
+
+	losango --> RELAÇÃO
+
+	circulos --> ATRIBUTO DA ENTIDADE
+
+		atributos sublinhados são chaves primárias
+
+		qualquer entidade precisa de chaves primárias
+
+	nao podemos repetir entidades ou relacoes, mas podemos repetir atributos
+
+
+	podemos definir a direção de uma relação (por convenção) através de < e >
+
+	uma relação não tem primary key
+
+	
+
+
+
+
+
+
+
+
+
